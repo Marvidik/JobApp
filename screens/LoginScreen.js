@@ -1,9 +1,31 @@
-import { View, Text ,StyleSheet} from 'react-native'
-import React from 'react'
+import { View, Text ,StyleSheet,TouchableOpacity,TouchableHighlight} from 'react-native'
+import React, {useState} from 'react'
 import NiceInputField from '../components/TextInputComp'
 import ButtonComp from '../components/ButtonComp'
+import axios from 'axios'; // Import axios
+
+
 
 export default function LoginScreen() {
+
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post('http://127.0.0.1:8000/login/', {
+        username,
+        password,
+      });
+      
+      // Handle the response (e.g., store tokens, navigate to the next screen)
+      console.log('Login successful:', response.data);
+    } catch (error) {
+      // Handle login error (e.g., show error message)
+      console.error('Login error:', error,"rest abeg");
+    }
+  };
+
   return (
     <View style={styles.mainer}>
     <View style={styles.box1}>
@@ -13,15 +35,19 @@ export default function LoginScreen() {
     </View>
     <View style={styles.box2}>
         <Text style={styles.place}>Username</Text>
-        <NiceInputField placeholder={"Email"}/>
+        <NiceInputField placeholder={"Email"} onChangeText={text => setUsername(text)}/>
     </View>
 
     <View style={styles.box3}>
         <Text style={styles.place}>Password</Text>
-        <NiceInputField placeholder={"Password"} decision={true}/>
+        <NiceInputField placeholder={"Password"} decision={true} onChangeText={text => setPassword(text)}/>
     </View>
     <Text style={styles.pass}>Forgotten Password</Text>
-    <ButtonComp color={"#1C58F2"} write={"LOG IN"}/>
+    <TouchableOpacity onPress={handleLogin}>
+    <ButtonComp color={"#1C58F2"} write={"LOG IN"} style2={styles.but}/>
+    </TouchableOpacity>
+
+
     <Text style={styles.last}>Dont Have an Account SignUP?</Text>
     </View>
 
@@ -34,6 +60,9 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
     mainer:{
         
+    },
+    but:{
+    marginTop:40
     },
     box1:{
         paddingTop:102,

@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, TextInput, Image, StyleSheet } from 'react-native';
 
-export default function NiceInputField({source,placeholder,decision}) {
+export default function NiceInputField({source,placeholder,decision,props}) {
   return (
     <View style={styles.inputContainer}>
       <TextInput
+        {...props}
         style={styles.input}
         placeholder={placeholder}
         secureTextEntry={decision}

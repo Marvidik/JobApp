@@ -1,8 +1,8 @@
 import { View, Text,StyleSheet } from 'react-native'
 import React from 'react'
 
-export default function ButtonComp({color,write}) {
-    const sty=[styles.mainer,{backgroundColor:color}]
+export default function ButtonComp({color,write,style2}) {
+    const sty=[styles.mainer,{backgroundColor:color},style2]
   return (
     <View style={sty}>
       <Text>{write}</Text>
@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
         justifyContent:"center",
         borderRadius:20,
         elevation:15,
-        top:50,
         alignSelf:"center"
     }
 })

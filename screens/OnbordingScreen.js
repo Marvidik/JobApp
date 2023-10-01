@@ -11,7 +11,7 @@ export default function OnbordingScreen() {
       <View style={styles.textContainer}>
         <Text style={styles.text1}>Climb Higher With</Text>
         <Text style={styles.text1}>MyJob App</Text>
-        <ButtonComp color={"white"} write={"Start Searching"}/>
+        <ButtonComp color={"white"} write={"Start Searching"} style2={styles.but}/>
       </View>
     </View>
   );
@@ -24,6 +24,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     flex: 1,
   },
+  but:{
+    marginTop:40
+    },
   image: {
     width: 349,
     height: 307,
