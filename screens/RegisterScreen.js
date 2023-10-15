@@ -10,18 +10,28 @@ export default function RegisterScreen() {
   const [email, setEmail] = useState('');
 
   const handleRegister = async () => {
+
+
     try {
-      const response = await axios.post('http://127.0.0.1:8000/register', {
-        username,
-        email,
-        password,
-      });
+      const csrfToken = "Obtain the CSRF token from your server";
+      const headers = {
+        "X-CSRFToken": csrfToken, // Include the CSRF token in the header
+        "Content-Type": "application/json", // Specify the content type
+      };
+
+    const response = await axios.post('http://192.168.36.150:8000/register/', {
+      'username':username,
+      'email':email,
+      'password':password,
+    }, { headers });
+
       
       // Handle the response (e.g., store tokens, navigate to the next screen)
-      console.log('Login successful:', response.data);
+      console.log('Registration successful:', response.data);
     } catch (error) {
       // Handle login error (e.g., show error message)
-      console.error('Login error:', error,"rest abeg");
+      console.error('Registration error:', error,"rest abeg");
+      
     }
   };
 
@@ -43,7 +53,7 @@ export default function RegisterScreen() {
     </View>
     <View style={styles.box3}>
         <Text style={styles.place}>Password</Text>
-        <NiceInputField placeholder={"Password"} decision={true} onChangeText={text => setPassword(text)}/>
+        <NiceInputField placeholder={"Password"} secureTextEntry={true} onChangeText={text => setPassword(text)}/>
     </View>
     <TouchableOpacity onPress={handleRegister}>
     <ButtonComp color={"#1C58F2"} write={"Register"} style2={styles.but}/>
