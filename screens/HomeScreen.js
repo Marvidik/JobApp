@@ -2,6 +2,7 @@ import { View, Text,StyleSheet,Image } from 'react-native'
 import React from 'react'
 import ButtonComp from '../components/ButtonComp'
 import CardComp from '../components/CardComp'
+import MainCardComp from '../components/MainCardComp'
 
 export default function HomeScreen() {
   return (
@@ -28,6 +29,7 @@ export default function HomeScreen() {
           </View>
       </View>
       <Text style={styles.t4}>Recent Job List</Text>
+      <MainCardComp/>
     </View>
   )
 }
@@ -52,7 +54,7 @@ const styles = StyleSheet.create({
     height:163,
     backgroundColor:"#130160",
     alignSelf:"center",
-    marginTop:38,
+    marginTop:30,
     borderRadius:8
   },
   box3:{
@@ -120,6 +122,7 @@ const styles = StyleSheet.create({
     lineHeight:26.65,
     fontWeight:'500',
     paddingLeft:23,
+    paddingBottom:10
    
   },
   image: {
