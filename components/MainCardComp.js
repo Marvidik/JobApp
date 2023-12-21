@@ -7,7 +7,7 @@ export default function MainCardComp() {
   return (
     <View style={styles.card}>
         <View style={styles.box1}>
-            <LogoComp source={require("../assets/Vector.png")}/>
+            {/* <LogoComp source={require("../assets/Vector.png")}/> */}
             <View style={styles.b1}>
             <Text style={styles.text1}>Product Designer</Text>
             <Text style={styles.text2}>Apples inc. Califonia USA</Text>
