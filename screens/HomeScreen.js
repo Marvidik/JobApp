@@ -3,6 +3,7 @@ import React from 'react'
 import ButtonComp from '../components/ButtonComp'
 import CardComp from '../components/CardComp'
 import MainCardComp from '../components/MainCardComp'
+import { ScrollView } from 'react-native-web'
 
 export default function HomeScreen() {
   return (
@@ -28,8 +29,10 @@ export default function HomeScreen() {
             <CardComp text1={"38.9k"} text2={"Part Time"} style3={styles.card3}/>
           </View>
       </View>
-      <Text style={styles.t4}>Recent Job List</Text>
-      <MainCardComp/>
+      <Text style={styles.t4}>Most Recent Job</Text>
+    
+        <MainCardComp/>
+      
     </View>
   )
 }

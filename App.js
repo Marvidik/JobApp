@@ -4,13 +4,12 @@ import OnbordingScreen from './screens/OnbordingScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import HomeScreen from './screens/HomeScreen';
-import DetailScreen from './screens/DetailScreen';
 import JobScreen from './screens/JobScreen';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <JobScreen/>
+      <HomeScreen/>
    
     </View>
   );
